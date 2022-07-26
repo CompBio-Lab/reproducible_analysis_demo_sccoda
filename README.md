@@ -92,4 +92,4 @@ Please feel free to make a pull request if you would like to modify anything.
 
 Copyright 2021 GITHUB_ACCOUNT_NAME Inc.
 
-Code released under the [MIT license](https://github.com/GITHUB_USERNAME/reproducible_analysis_demo/blob/main/LICENSE).
+Code released under the [MIT license](https://github.com/singha53/reproducible_analysis_demo/blob/main/LICENSE).
