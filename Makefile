@@ -1,3 +1,5 @@
+include .env
+
 # Run all analysis
 all: getdata analysis plot paper
 
@@ -28,10 +30,10 @@ docs/manuscript/manuscript.pdf: docs/manuscript/manuscript.Rmd \
 
 # Docker 	
 build:
-	docker build -t rishikadaswani/sccoda .
+	docker build -t $(DOCKERHUB_USERNAME)/$(IMAGE_NAME):$(IMAGE_VERSION) .
 
 run:
-	docker run --rm -it -p 8787:8787 -e PASSWORD=123 -v $(shell pwd):/home/rstudio/rishikadaswani/demo:v0.1
+	docker run --rm -it -p 8787:8787 -e PASSWORD=123 -v $(shell pwd):/home/rstudio $(DOCKERHUB_USERNAME)/$(IMAGE_NAME):$(IMAGE_VERSION)
 	
 push:
-	docker push singha53/sccoda
+	docker push $(DOCKERHUB_USERNAME)/$(IMAGE_NAME):$(IMAGE_VERSION)
