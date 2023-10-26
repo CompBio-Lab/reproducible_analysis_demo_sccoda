@@ -28,10 +28,10 @@ docs/manuscript/manuscript.pdf: docs/manuscript/manuscript.Rmd \
 
 # Docker 	
 build:
-	docker build -t singha53/demo:v0.1 .
+	docker build -t rishikadaswani/sccoda .
 
 run:
-	docker run --rm -it -p 8787:8787 -e PASSWORD=123 -v $(shell pwd):/home/rstudio/ singha53/demo:v0.1
+	docker run --rm -it -p 8787:8787 -e PASSWORD=123 -v $(shell pwd):/home/rstudio/rishikadaswani/demo:v0.1
 	
 push:
-	docker push singha53/demo:v0.1
+	docker push singha53/sccoda
