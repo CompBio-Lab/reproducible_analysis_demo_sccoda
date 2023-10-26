@@ -1,0 +1,39 @@
+---
+title: "sccoda"
+output: html_document
+date: "2023-10-26"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## import libs
+
+```{python}
+import warnings
+warnings.filterwarnings("ignore")
+
+import mudata as mu
+import matplotlib.pyplot as plt
+
+import pertpy as pt
+```
+
+# data preparation
+
+```{python}
+haber_cells = pt.dt.haber_2017_regions()
+haber_cells.obs
+```
+
+# run SCCODA
+
+```{python}
+sccoda_model = pt.tl.Sccoda()
+sccoda_data = sccoda_model.load(haber_cells, type="cell_level", generate_sample_level=True, cell_type_identifier="cell_label", sample_identifier="batch", covariate_obs=["condition"])
+print(sccoda_data)
+print(sccoda_data["coda"].X)
+print(sccoda_data["coda"].obs)
+```
+
